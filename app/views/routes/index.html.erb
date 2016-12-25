@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Routes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th># маршрута</th>
+      <th>Станция</th>
+      <th>Порядок следования</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.number %></td>
+        <td><%= route.station %></td>
+        <td><%= route.order %></td>
+        <td><%= link_to 'Показать', route %></td>
+        <td><%= link_to 'Редактировать', edit_route_path(route) %></td>
+        <td><%= link_to 'Удалить', route, method: :delete, data: { confirm: 'Уверены?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Создать маршрут', new_route_path %>
